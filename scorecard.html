@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff5a1f" />
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/coachcapture-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" /><title>Lead Entry Scorecard | CoachCapture V2</title><meta name="description" content="CoachCapture lead-entry scorecard page for coaches who want to qualify prospects before replying." /></head>
+<body><nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="CoachCapture home">
+      <img src="assets/coachcapture-logo.png" class="brand-logo" alt="CoachCapture logo" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html#offer">Offer</a>
+      <a href="index.html#demos">Demos</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="scorecard.html">Lead Entry</a>
+      <a href="ryan-demo.html">Live Demo</a>
+    </div>
+    <a href="index.html#dm" class="cta">DM Ross →</a>
+  </div>
+</nav>
+<main id="top">
+<section class="hero"><div class="container hero-grid">
+  <div class="hero-copy">
+    <span class="pill"><span class="dot"></span> Lead Entry · From £799</span>
+    <h1>Let prospects qualify themselves before they <span class="gradient">hit your WhatsApp.</span></h1>
+    <p class="lead">The Lead Entry page asks the right questions, scores readiness, and gives the coach a cleaner reason to reply or book a call.</p>
+    <div class="actions"><a class="cta" href="#quiz">Try the lead entry demo →</a><a class="cta secondary" href="index.html#dm">Ask Ross for one</a></div>
+  </div>
+  <div class="card visual-card" style="min-height:540px;background-image:url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1000&q=85')"><div><span class="tag">Lead scoring</span><h2 style="font-size:clamp(34px,4vw,58px);margin-top:12px">Hot, warm, cold — before the DM.</h2></div></div>
+</div></section>
+
+<section id="quiz" class="section" style="padding-top:25px"><div class="container form-wrap">
+  <div class="card hot"><p class="eyebrow">Interactive demo</p><h2 style="font-size:clamp(34px,4vw,56px)">Readiness scorecard.</h2><p style="margin-top:16px">Try the logic. This can be adapted for any coach: fat loss, strength, boxing, running, lifestyle or nutrition.</p><div class="checklist"><div class="check">Goal and urgency</div><div class="check">Training availability</div><div class="check">Main struggle</div><div class="check">Readiness to invest</div></div></div>
+  <div class="card">
+    <div class="quiz-progress"><span id="progress"></span></div>
+    <form id="quizForm" onsubmit="event.preventDefault(); scoreLead();">
+      <label>Main goal<select id="goal" required><option value="">Choose</option><option value="22">Transformation / fat loss</option><option value="19">Muscle gain</option><option value="14">General fitness</option><option value="7">Just browsing</option></select></label>
+      <label>Start timeline<select id="start" required><option value="">Choose</option><option value="25">This week</option><option value="20">This month</option><option value="10">Later</option><option value="4">Not sure</option></select></label>
+      <label>Training availability<select id="days" required><option value="">Choose</option><option value="20">4+ days/week</option><option value="16">3 days/week</option><option value="10">1–2 days/week</option><option value="5">Inconsistent</option></select></label>
+      <label>Biggest struggle<select id="struggle" required><option value="">Choose</option><option value="15">Accountability</option><option value="14">Nutrition</option><option value="12">Training plan</option><option value="8">Motivation</option></select></label>
+      <label>Readiness to invest<select id="ready" required><option value="">Choose</option><option value="18">Ready if it fits</option><option value="14">Need info first</option><option value="7">Maybe later</option><option value="2">Not investing</option></select></label>
+      <button class="cta" type="submit">Calculate lead score →</button>
+    </form>
+    <div id="result" class="card score-result">
+      <h3 id="resultTitle">Lead score</h3>
+      <p id="resultCopy"></p>
+      <div class="scorebox" style="margin-top:16px"><div class="score" id="scoreNum">0</div><div><strong id="tier">Tier</strong><div class="tiny" style="margin:6px 0 10px">Suggested coach action</div><div class="bar"><span id="scoreBar" style="width:0%"></span></div></div></div>
+      <a id="wa" class="cta secondary" target="_blank" rel="noopener" style="margin-top:16px;width:100%">WhatsApp this score →</a>
+    </div>
+  </div>
+</div></section>
+<section class="section" style="padding-top:25px"><div class="container form-wrap">
+  <div class="card visual-card" style="background-image:url('https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?auto=format&fit=crop&w=1000&q=85')"><div><p class="eyebrow">High ticket logic</p><h2 style="font-size:clamp(34px,4vw,56px)">The bigger the audience, the more valuable the filter.</h2></div></div>
+  <div class="card hot"><p class="eyebrow">Request Lead Entry</p><h2 style="font-size:clamp(32px,4vw,52px)">Send your details.</h2><form class="whatsapp-form" onsubmit="sendCoachCaptureWhatsApp(event)">
+  <div class="field-grid">
+    <label>Name / business<input name="name" type="text" placeholder="Your name or coaching brand" required></label>
+    <label>Email<input name="email" type="email" placeholder="name@email.com"></label>
+  </div>
+  <div class="field-grid">
+    <label>Instagram / TikTok<input name="social" type="text" placeholder="@coachname or link" required></label>
+    <label>What do you want?<select name="package" required>
+      <option value="">Choose one</option>
+      <option>Basic digital front office — from £150</option>
+      <option>Premium digital front office — from £499</option>
+      <option>Lead-entry / scorecard page — from £799</option>
+      <option>Not sure — show me the best fit</option>
+    </select></label>
+  </div>
+  <label>Current setup<input name="current_setup" type="text" placeholder="No website, Linktree, Stan Store, website, DM only, etc."></label>
+  <label>Tell Ross what you need<textarea name="message" required placeholder="Example: I’m a PT with 18k followers using Linktree. I want a premium page with WhatsApp, testimonials and enquiry form."></textarea></label>
+  <button class="cta" type="submit">Open WhatsApp message to Ross →</button>
+  <p class="micro">No FormSubmit. No Formspree. This opens WhatsApp with your details pre-filled to Ross.</p>
+</form></div>
+</div></section>
+</main><div class="sticky-mobile"><a class="cta" href="index.html#dm">DM Ross / get a demo →</a></div>
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="assets/coachcapture-logo.png" class="brand-logo footer-logo" alt="CoachCapture logo" />
+    <p>CoachCapture V2 — digital front offices and lead-entry pages for coaches.</p>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+<script>
+const fields=["goal","start","days","struggle","ready"];
+fields.forEach(id=>document.getElementById(id).addEventListener("change",()=>{
+ const done=fields.filter(f=>document.getElementById(f).value).length;
+ document.getElementById("progress").style.width=(done/fields.length*100)+"%";
+}));
+function scoreLead(){
+ const score=fields.reduce((s,id)=>s+Number(document.getElementById(id).value||0),0);
+ let tier, copy;
+ if(score>=78){tier="Hot lead";copy="Reply personally and move them to WhatsApp or a call quickly.";}
+ else if(score>=55){tier="Warm lead";copy="Send proof, package details and invite them to book when ready.";}
+ else {tier="Cold lead";copy="Nurture. Do not waste a call slot yet.";}
+ document.getElementById("scoreNum").textContent=score;
+ document.getElementById("scoreBar").style.width=Math.min(score,100)+"%";
+ document.getElementById("tier").textContent=tier;
+ document.getElementById("resultTitle").textContent=tier+" · "+score+"/100";
+ document.getElementById("resultCopy").textContent=copy;
+ document.getElementById("wa").href="https://wa.me/447477869902?text="+encodeURIComponent("Hi Ross, I tried the CoachCapture Lead Entry demo. My score was "+score+"/100 ("+tier+"). I want one for my coaching brand.");
+ document.getElementById("result").classList.add("result-visible");
+ document.getElementById("result").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+</script>
+
+<script>
+function sendCoachCaptureWhatsApp(event) {
+  event.preventDefault();
+  const form = event.target;
+  const data = new FormData(form);
+
+  const name = data.get("name") || "";
+  const email = data.get("email") || "";
+  const social = data.get("social") || "";
+  const packageChoice = data.get("package") || "";
+  const currentSetup = data.get("current_setup") || "";
+  const message = data.get("message") || "";
+
+  const text =
+`Hi Ross, I want a CoachCapture digital front office.
+
+Name / business: ${name}
+Email: ${email}
+Instagram / TikTok: ${social}
+Package: ${packageChoice}
+Current setup: ${currentSetup}
+
+What I need:
+${message}`;
+
+  const whatsappUrl = "https://wa.me/447477869902?text=" + encodeURIComponent(text);
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+}
+</script>
+
+</body></html>

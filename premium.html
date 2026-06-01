@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff5a1f" />
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/coachcapture-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" /><title>Premium Digital Front Office | CoachCapture V2</title><meta name="description" content="Premium CoachCapture front office demo for coaches who want a branded conversion page." /></head>
+<body><nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="CoachCapture home">
+      <img src="assets/coachcapture-logo.png" class="brand-logo" alt="CoachCapture logo" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html#offer">Offer</a>
+      <a href="index.html#demos">Demos</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="scorecard.html">Lead Entry</a>
+      <a href="ryan-demo.html">Live Demo</a>
+    </div>
+    <a href="index.html#dm" class="cta">DM Ross →</a>
+  </div>
+</nav>
+<main id="top">
+<section class="hero"><div class="container hero-grid">
+  <div class="hero-copy">
+    <span class="pill"><span class="dot"></span> Premium · From £499</span>
+    <h1>Your coaching brand deserves more than <span class="gradient">five random buttons.</span></h1>
+    <p class="lead">Premium turns your bio link into a buyer journey: offer, proof, client results, FAQ, WhatsApp, booking and enquiry form.</p>
+    <div class="actions"><a class="cta" href="index.html#dm">Ask Ross for Premium →</a><a class="cta secondary" href="scorecard.html">Upgrade to Lead Entry</a></div>
+  </div>
+  <div class="phone-stage">
+    <div class="orb"></div>
+    <div class="phone"><div class="screen">
+      <div class="screen-img" style="background-image:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=85')"></div>
+      <div class="screen-body"><span class="tag">Premium front office</span><h3>12-week transformation coaching</h3><p>Clear offer, proof, objections answered and application form.</p><a class="cta" href="index.html#dm">Apply for coaching →</a></div>
+    </div></div>
+  </div>
+</div></section>
+<section class="section" style="padding-top:25px"><div class="container">
+  <div class="section-head"><div><p class="eyebrow">Premium sections</p><h2>Built to make the coach look serious instantly.</h2></div><p>The job is to move the prospect from curiosity to confidence.</p></div>
+  <div class="grid-3">
+    <article class="card"><div class="number">01</div><h3>Positioning</h3><p>Strong headline, niche, promise and clear client outcome.</p></article>
+    <article class="card"><div class="number">02</div><h3>Proof</h3><p>Testimonials, results, coach story and credibility blocks.</p></article>
+    <article class="card"><div class="number">03</div><h3>Conversion</h3><p>Lead form, WhatsApp, booking and sticky mobile CTA.</p></article>
+  </div>
+</div></section>
+<section class="section" style="padding-top:25px"><div class="container grid-2">
+  <div class="card visual-card" style="background-image:url('https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=1000&q=85')"><div><p class="eyebrow">Use this angle</p><h2 style="font-size:clamp(34px,4vw,56px)">“You already have attention. Now you need a conversion layer.”</h2></div></div>
+  <div class="card hot"><p class="eyebrow">Request Premium</p><h2 style="font-size:clamp(32px,4vw,52px)">Send your details.</h2><form class="whatsapp-form" onsubmit="sendCoachCaptureWhatsApp(event)">
+  <div class="field-grid">
+    <label>Name / business<input name="name" type="text" placeholder="Your name or coaching brand" required></label>
+    <label>Email<input name="email" type="email" placeholder="name@email.com"></label>
+  </div>
+  <div class="field-grid">
+    <label>Instagram / TikTok<input name="social" type="text" placeholder="@coachname or link" required></label>
+    <label>What do you want?<select name="package" required>
+      <option value="">Choose one</option>
+      <option>Basic digital front office — from £150</option>
+      <option>Premium digital front office — from £499</option>
+      <option>Lead-entry / scorecard page — from £799</option>
+      <option>Not sure — show me the best fit</option>
+    </select></label>
+  </div>
+  <label>Current setup<input name="current_setup" type="text" placeholder="No website, Linktree, Stan Store, website, DM only, etc."></label>
+  <label>Tell Ross what you need<textarea name="message" required placeholder="Example: I’m a PT with 18k followers using Linktree. I want a premium page with WhatsApp, testimonials and enquiry form."></textarea></label>
+  <button class="cta" type="submit">Open WhatsApp message to Ross →</button>
+  <p class="micro">No FormSubmit. No Formspree. This opens WhatsApp with your details pre-filled to Ross.</p>
+</form></div>
+</div></section>
+</main><div class="sticky-mobile"><a class="cta" href="index.html#dm">DM Ross / get a demo →</a></div>
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="assets/coachcapture-logo.png" class="brand-logo footer-logo" alt="CoachCapture logo" />
+    <p>CoachCapture V2 — digital front offices and lead-entry pages for coaches.</p>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+<script>
+function sendCoachCaptureWhatsApp(event) {
+  event.preventDefault();
+  const form = event.target;
+  const data = new FormData(form);
+
+  const name = data.get("name") || "";
+  const email = data.get("email") || "";
+  const social = data.get("social") || "";
+  const packageChoice = data.get("package") || "";
+  const currentSetup = data.get("current_setup") || "";
+  const message = data.get("message") || "";
+
+  const text =
+`Hi Ross, I want a CoachCapture digital front office.
+
+Name / business: ${name}
+Email: ${email}
+Instagram / TikTok: ${social}
+Package: ${packageChoice}
+Current setup: ${currentSetup}
+
+What I need:
+${message}`;
+
+  const whatsappUrl = "https://wa.me/447477869902?text=" + encodeURIComponent(text);
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+}
+</script>
+
+</body></html>
