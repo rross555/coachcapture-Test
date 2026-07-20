@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Atlas Worlds — Immersive Digital Front Desk</title>
+<meta name="description" content="An immersive, interactive ClientCapture portal concept." />
+<style>
+:root{--ink:#f7f4ea;--muted:#c6c1b5;--gold:#ffb11b;--orange:#ff6a00;--deep:#080714;--panel:rgba(11,10,25,.76)}*{box-sizing:border-box}html{scroll-behavior:smooth;background:#05040b;color:var(--ink)}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow-x:hidden;background:radial-gradient(circle at 50% -20%,#27173a 0,#0a0711 38%,#05040b 70%)}button,a{font:inherit}.hidden{display:none!important}
+#intro{position:fixed;inset:0;z-index:90;background:#000;overflow:hidden}.intro-video{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.08) brightness(.7)}.intro-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.28) 55%,rgba(3,2,8,.9));display:flex;align-items:flex-end;justify-content:center;padding:8vh 20px}.intro-card{text-align:center;max-width:760px;padding-bottom:5vh}.eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:.72rem;color:#ffd08a}.intro-card h1{font-size:clamp(2rem,7vw,5rem);line-height:.95;margin:.55rem 0 1rem}.intro-card p{color:#eee2d2;font-size:clamp(1rem,2.1vw,1.2rem);max-width:620px;margin:0 auto 1.5rem}.enter{border:0;border-radius:999px;padding:15px 24px;background:linear-gradient(135deg,var(--gold),var(--orange));color:#150c02;font-weight:800;box-shadow:0 10px 40px rgba(255,116,0,.35);cursor:pointer}.skip{display:block;margin:14px auto 0;border:0;background:none;color:#e0d9cc;text-decoration:underline;cursor:pointer}.intro-exit{animation:dive .95s cubic-bezier(.8,0,.2,1) forwards}@keyframes dive{to{opacity:0;transform:scale(2.4);filter:blur(18px)}}
+#world{min-height:100vh;position:relative}.world-stage{position:relative;min-height:100vh;overflow:hidden;background:radial-gradient(circle at 50% 25%,rgba(255,146,48,.17),transparent 20%),linear-gradient(#090713,#0c0d18 50%,#05060a)}canvas{position:absolute;inset:0;width:100%;height:100%;display:block}.fog{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,12,17,.55) 76%,#07070c);pointer-events:none}.topbar{position:absolute;z-index:5;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 22px}.brand{font-weight:850;letter-spacing:.08em}.brand span{color:var(--gold)}.sound{border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(10,8,20,.5);color:#fff;padding:9px 13px;cursor:pointer;backdrop-filter:blur(10px)}.hero-copy{position:absolute;z-index:4;left:50%;top:13%;transform:translateX(-50%);width:min(920px,90vw);text-align:center;pointer-events:none}.hero-copy h2{font-size:clamp(2.4rem,7vw,6.2rem);margin:.4rem 0;line-height:.92}.hero-copy p{color:var(--muted);font-size:clamp(1rem,2vw,1.24rem);max-width:670px;margin:auto}.instruction{position:absolute;z-index:4;left:50%;bottom:28px;transform:translateX(-50%);padding:10px 16px;border:1px solid rgba(255,255,255,.15);border-radius:999px;background:rgba(3,3,8,.45);backdrop-filter:blur(12px);color:#ddd;font-size:.9rem}.nodes{position:absolute;z-index:4;inset:0}.node{position:absolute;transform:translate(-50%,-50%);width:116px;height:116px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:radial-gradient(circle at 35% 30%,rgba(255,214,128,.45),rgba(255,116,0,.18) 36%,rgba(20,10,35,.72) 70%);box-shadow:0 0 40px rgba(255,129,26,.22),inset 0 0 30px rgba(255,255,255,.09);color:#fff;cursor:pointer;display:grid;place-items:center;text-align:center;padding:12px;backdrop-filter:blur(8px);transition:.25s ease}.node:hover,.node:focus{transform:translate(-50%,-50%) scale(1.1);box-shadow:0 0 55px rgba(255,151,51,.55)}.node small{display:block;color:#ffd7a0;margin-top:4px}.n1{left:17%;top:57%}.n2{left:37%;top:70%}.n3{left:63%;top:70%}.n4{left:83%;top:57%}.n5{left:50%;top:49%;width:136px;height:136px}
+.drawer{position:fixed;z-index:40;right:16px;top:16px;bottom:16px;width:min(440px,calc(100vw - 32px));border:1px solid rgba(255,255,255,.14);border-radius:28px;background:rgba(9,8,18,.94);backdrop-filter:blur(22px);padding:25px;box-shadow:0 30px 100px rgba(0,0,0,.55);transform:translateX(115%);transition:.45s cubic-bezier(.2,.8,.2,1);overflow:auto}.drawer.open{transform:none}.close{float:right;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:#171323;color:#fff;cursor:pointer}.drawer h3{font-size:2rem;margin:50px 0 10px}.drawer p{color:#c8c2b7;line-height:1.65}.drawer .cta{display:inline-block;margin-top:16px;text-decoration:none;background:linear-gradient(135deg,var(--gold),var(--orange));color:#160b00;padding:13px 18px;border-radius:999px;font-weight:800}.feature-list{display:grid;gap:10px;margin-top:20px}.feature{padding:13px 14px;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.035)}
+.details{padding:90px 20px;max-width:1100px;margin:auto}.details h2{font-size:clamp(2rem,5vw,4rem);margin:0 0 16px}.details>p{color:var(--muted);max-width:700px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}.card{border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));min-height:190px}.card b{color:#ffcb76}.card p{color:#bdb7ac;line-height:1.55}.footer{text-align:center;padding:50px 20px 80px;color:#9d978e}
+@media(max-width:760px){.hero-copy{top:17%}.node{width:92px;height:92px;font-size:.78rem}.n1{left:18%;top:59%}.n2{left:34%;top:76%}.n3{left:66%;top:76%}.n4{left:82%;top:59%}.n5{left:50%;top:51%;width:112px;height:112px}.instruction{bottom:18px;width:max-content;max-width:90vw;text-align:center}.grid{grid-template-columns:1fr}.topbar{padding:14px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<section id="intro" aria-label="Cinematic entrance">
+  <video class="intro-video" id="introVideo" autoplay muted playsinline preload="auto" poster="preview.jpg">
+    <source src="intro.mp4" type="video/mp4" />
+  </video>
+  <div class="intro-shade">
+    <div class="intro-card">
+      <div class="eyebrow">ClientCapture immersive engine</div>
+      <h1>Dive beyond the ordinary.</h1>
+      <p>Your supplied video becomes the cinematic threshold. From there, the visitor enters a fully interactive digital world.</p>
+      <button class="enter" id="enterBtn" type="button">Enter the world</button>
+      <button class="skip" id="skipBtn" type="button">Skip cinematic intro</button>
+    </div>
+  </div>
+</section>
+
+<main id="world">
+  <section class="world-stage" id="stage">
+    <canvas id="sky"></canvas>
+    <div class="fog"></div>
+    <header class="topbar"><div class="brand">ATLAS <span>// WORLDS</span></div><button class="sound" id="soundBtn" type="button">Sound: off</button></header>
+    <div class="hero-copy"><div class="eyebrow">A living digital front desk</div><h2>Choose a world.</h2><p>Move your cursor or phone to shift the environment. Tap any portal to open an interactive experience.</p></div>
+    <div class="nodes">
+      <button class="node n1" data-world="forest" type="button">Forest<small>Wellness</small></button>
+      <button class="node n2" data-world="ocean" type="button">Ocean<small>Hospitality</small></button>
+      <button class="node n3" data-world="volcano" type="button">Volcano<small>Performance</small></button>
+      <button class="node n4" data-world="temple" type="button">Temple<small>Professional</small></button>
+      <button class="node n5" data-world="cosmic" type="button">Cosmic<small>Technology</small></button>
+    </div>
+    <div class="instruction">Drag, move or tilt • tap a portal</div>
+  </section>
+
+  <section class="details">
+    <div class="eyebrow">Original concept, scalable engine</div>
+    <h2>Not a copied website. A reusable experience system.</h2>
+    <p>The structure takes inspiration from high-end immersive studios, while the visual language, worlds, content system and interaction design are entirely original.</p>
+    <div class="grid">
+      <article class="card"><b>01 — Cinematic entry</b><p>Your video opens the experience and transitions into the world with a controlled zoom, blur and sound fade.</p></article>
+      <article class="card"><b>02 — Interactive navigation</b><p>Every portal can lead to services, offers, videos, booking, Google reviews, maps, social content or a complete mini-world.</p></article>
+      <article class="card"><b>03 — Built for mobile</b><p>Touch, drag and device movement are supported without trapping the visitor or breaking page scroll.</p></article>
+    </div>
+  </section>
+  <footer class="footer">ClientCapture — Turn attention into action.</footer>
+</main>
+
+<aside class="drawer" id="drawer" aria-live="polite" aria-label="World information">
+  <button class="close" id="closeDrawer" type="button" aria-label="Close">×</button>
+  <div class="eyebrow" id="drawerTag">Interactive world</div>
+  <h3 id="drawerTitle">Forest</h3>
+  <p id="drawerText"></p>
+  <div class="feature-list" id="featureList"></div>
+  <a class="cta" href="#" id="drawerCta">Open experience</a>
+</aside>
+
+<script>
+const intro=document.getElementById('intro'), video=document.getElementById('introVideo');
+function enterWorld(){intro.classList.add('intro-exit');setTimeout(()=>{intro.classList.add('hidden');window.scrollTo({top:0})},900)}
+document.getElementById('enterBtn').addEventListener('click',enterWorld);document.getElementById('skipBtn').addEventListener('click',enterWorld);video.addEventListener('ended',()=>setTimeout(enterWorld,250));
+
+const canvas=document.getElementById('sky'),ctx=canvas.getContext('2d');let W,H,dpr,px=0,py=0,t=0;const stars=[];
+function resize(){dpr=Math.min(devicePixelRatio||1,2);W=canvas.clientWidth;H=canvas.clientHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);stars.length=0;for(let i=0;i<150;i++)stars.push({x:Math.random()*W,y:Math.random()*H*.72,r:Math.random()*1.6+.3,s:Math.random()*.8+.2})}
+function draw(){t+=.006;ctx.clearRect(0,0,W,H);const g=ctx.createRadialGradient(W*.5+px*35,H*.34+py*20,10,W*.5,H*.45,H*.72);g.addColorStop(0,'rgba(124,66,161,.28)');g.addColorStop(.32,'rgba(34,18,58,.24)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);for(const s of stars){const a=.25+.65*Math.abs(Math.sin(t*s.s*7+s.x));ctx.fillStyle=`rgba(255,239,205,${a})`;ctx.beginPath();ctx.arc(s.x+px*s.r*7,s.y+py*s.r*5,s.r,0,Math.PI*2);ctx.fill()}for(let i=0;i<5;i++){ctx.beginPath();ctx.ellipse(W*(.12+i*.2)+px*(i-2)*8,H*.87-i*10,170+i*22,82+i*8,0,0,Math.PI*2);ctx.fillStyle=`rgba(${12+i*3},${15+i*2},${21+i*3},.92)`;ctx.fill()}requestAnimationFrame(draw)}
+resize();draw();addEventListener('resize',resize);document.getElementById('stage').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect();px=(e.clientX-r.left)/r.width-.5;py=(e.clientY-r.top)/r.height-.5});
+if(window.DeviceOrientationEvent){addEventListener('deviceorientation',e=>{if(e.gamma!=null){px=Math.max(-.5,Math.min(.5,e.gamma/50));py=Math.max(-.5,Math.min(.5,(e.beta-45)/70))}})}
+
+const worlds={
+forest:{title:'The Living Forest',tag:'Wellness • retreats • hospitality',text:'A breathing woodland interface with fireflies, ambient sound, guided pathways and hidden content points.',features:['Booking and WhatsApp enquiries','Treatment menus and seasonal offers','Reviews, maps and social video'],cta:'Enter the forest'},
+ocean:{title:'The Tidal World',tag:'Restaurants • hotels • travel',text:'A fluid world built around movement, discovery and atmosphere. Perfect for destinations and guest experiences.',features:['Menus, rooms and experiences','Location and live enquiry routes','Video storytelling and reviews'],cta:'Dive beneath the surface'},
+volcano:{title:'The Forge',tag:'Gyms • MMA • performance',text:'A high-energy environment with impact interactions, training offers and direct conversion points.',features:['Membership and trial funnels','Timetables and coach profiles','Book-now and WhatsApp actions'],cta:'Enter the forge'},
+temple:{title:'The Archive Temple',tag:'Law • finance • consulting',text:'A premium, controlled environment that turns expertise into trust, clarity and qualified enquiries.',features:['Service pathways by client need','Team, credentials and case studies','Secure enquiry and consultation booking'],cta:'Open the archive'},
+cosmic:{title:'The Signal',tag:'AI • technology • innovation',text:'A reactive cosmic interface for future-facing brands, product launches and interactive demonstrations.',features:['Interactive product storytelling','Video, demos and lead capture','Expandable 3D scenes and portals'],cta:'Follow the signal'}
+};
+const drawer=document.getElementById('drawer');document.querySelectorAll('.node').forEach(btn=>btn.addEventListener('click',()=>{const w=worlds[btn.dataset.world];document.getElementById('drawerTitle').textContent=w.title;document.getElementById('drawerTag').textContent=w.tag;document.getElementById('drawerText').textContent=w.text;document.getElementById('featureList').innerHTML=w.features.map(x=>`<div class="feature">${x}</div>`).join('');document.getElementById('drawerCta').textContent=w.cta;drawer.classList.add('open')}));document.getElementById('closeDrawer').addEventListener('click',()=>drawer.classList.remove('open'));addEventListener('keydown',e=>{if(e.key==='Escape')drawer.classList.remove('open')});
+
+let audioCtx,osc,gain,on=false;document.getElementById('soundBtn').addEventListener('click',async()=>{if(!audioCtx){audioCtx=new (window.AudioContext||window.webkitAudioContext)();osc=audioCtx.createOscillator();gain=audioCtx.createGain();osc.type='sine';osc.frequency.value=72;gain.gain.value=.025;osc.connect(gain).connect(audioCtx.destination);osc.start()}on=!on;gain.gain.setTargetAtTime(on?.025:0,audioCtx.currentTime,.25);document.getElementById('soundBtn').textContent=`Sound: ${on?'on':'off'}`});
+</script>
+</body>
+</html>
