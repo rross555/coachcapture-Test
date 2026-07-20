@@ -22,3 +22,16 @@ Ask Atlas includes:
   https://www.getclientcapture.co.uk/enquiry.html
 
 The fixed cinematic narration and generative ambient music remain browser-based and require no external audio licence.
+
+ATLAS PREMIUM VOICE
+-------------------
+Atlas replies now use the secure Vercel endpoint /api/speech and OpenAI text-to-speech.
+The same OPENAI_API_KEY powers both chat and voice.
+
+Optional Vercel Environment Variables:
+OPENAI_TTS_MODEL=gpt-4o-mini-tts
+OPENAI_TTS_VOICE=onyx
+ATLAS_TTS_HOURLY_LIMIT=30
+
+The site falls back to the device voice only if premium speech generation fails.
+After uploading these files, redeploy the Vercel project so api/speech.js is created.
