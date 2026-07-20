@@ -1,18 +1,15 @@
-ATLAS // WORLDS
+CLIENTCAPTURE WORLDS — FLAGSHIP EXPERIENCE
 
-Open index.html locally or deploy the folder to Vercel/GitHub Pages.
+Deploy the entire folder to GitHub/Vercel.
+Required files:
+- index.html
+- intro.mp4
+- preview.jpg
 
-Files:
-- index.html — complete interactive portal
-- intro.mp4 — supplied cinematic opening video
-- preview.jpg — poster image
+Live links currently configured:
+- Forest: https://forest.clientcapture.vercel.app/#cottage
+- Volcano / Dragon: https://dragon.getclientcapture.co.uk
+- Main site: https://getclientcapture.co.uk
 
-The experience includes:
-- cinematic video intro
-- zoom/dive transition
-- interactive particle world
-- mouse, touch and device-tilt response
-- five clickable themed portals
-- accessible side drawers
-- mobile responsive layout
-- optional ambient browser-generated sound
+Ocean, Temple and Cosmic are intentionally marked coming soon.
+Replace placeholder client links in the Live Client Universe when final URLs are available.
