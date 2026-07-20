@@ -1,14 +1,28 @@
 {
   "functions": {
-    "api/atlas.js": {"maxDuration": 20}
+    "api/atlas.js": {
+      "maxDuration": 20
+    },
+    "api/speech.js": {
+      "maxDuration": 30
+    }
   },
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        {"key": "X-Frame-Options", "value": "SAMEORIGIN"},
-        {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
-        {"key": "Permissions-Policy", "value": "camera=(), geolocation=(), microphone=(self)"}
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), geolocation=(), microphone=(self)"
+        }
       ]
     }
   ]
