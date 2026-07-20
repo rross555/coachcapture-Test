@@ -1,0 +1,6 @@
+{
+  "name": "clientcapture-worlds-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {"node": ">=20"}
+}
