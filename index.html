@@ -44,6 +44,7 @@
 
 .footer{display:flex;flex-direction:column;align-items:center;gap:14px}.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}.footer-links a{color:#d8d0c3;text-decoration:none}.footer-links a:hover{text-decoration:underline}.footer small{color:#817b72}.cookie-banner{position:fixed;z-index:120;left:16px;right:16px;bottom:16px;max-width:920px;margin:auto;border:1px solid var(--line);border-radius:22px;background:rgba(8,8,18,.97);backdrop-filter:blur(22px);padding:16px;box-shadow:0 20px 80px rgba(0,0,0,.55);display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}.cookie-banner p{margin:0;color:#d3ccbf;line-height:1.55}.cookie-banner a{color:#ffd18b}.cookie-actions{display:flex;gap:8px;flex-wrap:wrap}.cookie-actions button{border-radius:999px;padding:10px 14px;cursor:pointer}.cookie-reject{border:1px solid var(--line);background:#11101b;color:#fff}.cookie-accept{border:0;background:linear-gradient(135deg,var(--gold),var(--orange));color:#170c01;font-weight:800}.mobile-cta{display:none;position:fixed;z-index:25;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));text-align:center}.mobile-cta a{display:flex;width:100%}@media(max-width:620px){.cookie-banner{grid-template-columns:1fr}.cookie-actions{width:100%}.cookie-actions button{flex:1}.mobile-cta{display:block}.footer{padding-bottom:110px}}
 </style>
+<link rel="stylesheet" href="atlas-chat.css" />
 </head>
 <body>
 <section id="intro" aria-label="Cinematic entrance">
@@ -79,6 +80,35 @@
 <section class="finale" id="finale"><div class="eyebrow">The final signal</div><h2>Your business deserves more than a website. It deserves a world.</h2><p>Turn customer attention into enquiries, bookings and real action.</p><div class="final-actions"><a class="primary" href="https://www.getclientcapture.co.uk/enquiry.html" target="_blank" rel="noopener">Start Your World</a><a class="secondary" href="https://getclientcapture.co.uk" target="_blank" rel="noopener">See Our Packages</a></div></section>
 <footer class="footer"><strong>ClientCapture — Turn attention into action.</strong><nav class="footer-links" aria-label="Legal and company links"><a href="https://getclientcapture.co.uk" target="_blank" rel="noopener">Main site</a><a href="https://www.getclientcapture.co.uk/enquiry.html" target="_blank" rel="noopener">Enquiry form</a><a href="privacy.html">Privacy</a><a href="cookies.html">Cookies</a><a href="terms.html">Terms</a><button type="button" id="cookieSettings" class="secondary" style="padding:7px 11px">Cookie settings</button></nav><small>© 2026 ClientCapture. All rights reserved.</small></footer>
 <div class="mobile-cta"><a class="primary" href="https://www.getclientcapture.co.uk/enquiry.html" target="_blank" rel="noopener">Start Your World</a></div>
+
+<button class="atlas-launch" id="atlasLaunch" type="button" aria-label="Ask Atlas">
+  <span class="atlas-orb" aria-hidden="true"><span>A</span></span>
+  <span><strong>Ask Atlas</strong><small>Voice or text</small></span>
+</button>
+<section class="atlas-shell" id="atlasShell" aria-hidden="true" aria-label="Ask Atlas assistant">
+  <header class="atlas-head">
+    <span class="atlas-orb" aria-hidden="true"><span>A</span></span>
+    <div class="atlas-head-copy"><h3>Atlas</h3><p class="atlas-status">AI guide online</p></div>
+    <button id="atlasVoice" type="button" aria-label="Mute Atlas replies">🔊</button>
+    <button id="atlasClose" type="button" aria-label="Close Atlas">×</button>
+  </header>
+  <div>
+    <div class="atlas-messages" id="atlasMessages" aria-live="polite"></div>
+    <div class="atlas-suggestions" aria-label="Suggested questions">
+      <button type="button" data-atlas-prompt="I run a barber shop. What would you build for me?">Barber portal</button>
+      <button type="button" data-atlas-prompt="How much does a ClientCapture portal cost?">Pricing</button>
+      <button type="button" data-atlas-prompt="What makes ClientCapture different from a normal website?">Why ClientCapture?</button>
+    </div>
+  </div>
+  <form class="atlas-compose" id="atlasForm">
+    <div class="atlas-inputrow">
+      <button id="atlasMic" type="button" aria-label="Speak a question">🎙</button>
+      <textarea id="atlasInput" maxlength="800" rows="1" placeholder="Ask Atlas about your business…" aria-label="Question for Atlas"></textarea>
+      <button class="atlas-send" type="submit" aria-label="Send question">➤</button>
+    </div>
+    <div class="atlas-footnote"><span>Atlas is an AI guide. Do not share sensitive information.</span><a href="https://www.getclientcapture.co.uk/enquiry.html" target="_blank" rel="noopener">Enquire</a></div>
+  </form>
+</section>
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie preferences"><p>We use essential cookies to make this experience work. Optional analytics should only run with your permission. Read our <a href="cookies.html">cookie policy</a>.</p><div class="cookie-actions"><button class="cookie-reject" id="rejectCookies" type="button">Essential only</button><button class="cookie-accept" id="acceptCookies" type="button">Accept all</button></div></div>
 </div>
 <aside class="drawer" id="drawer" aria-live="polite"><button class="close" id="closeDrawer" type="button">×</button><div class="eyebrow" id="drawerTag">Interactive world</div><h3 id="drawerTitle"></h3><p id="drawerText"></p><div class="feature-list" id="featureList"></div><a class="primary" href="#" id="drawerCta">Open experience</a></aside>
@@ -120,5 +150,6 @@ document.getElementById('acceptCookies').addEventListener('click',()=>setCookieC
 document.getElementById('rejectCookies').addEventListener('click',()=>setCookieChoice('essential'));
 cookieSettings.addEventListener('click',()=>cookieBanner.classList.remove('hidden'));
 </script>
+<script src="atlas-chat.js" defer></script>
 </body>
 </html>
