@@ -31,17 +31,18 @@ linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
 background-size:44px 44px;mask-image:linear-gradient(#000,transparent 88%);z-index:-1}
 header{position:sticky;top:0;z-index:20;background:rgba(7,7,7,.74);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
 .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-1px;font-size:24px}
-.logo-mark{width:43px;height:43px;border-radius:14px;position:relative;background:linear-gradient(145deg,#ff9d24,#ff5a00);box-shadow:0 0 30px rgba(255,106,0,.32);overflow:hidden}
-.logo-mark:before,.logo-mark:after{content:"";position:absolute;border:4px solid #17100a;border-right-color:transparent;border-radius:50%}
-.logo-mark:before{width:21px;height:21px;left:7px;top:7px}
-.logo-mark:after{width:13px;height:13px;left:15px;top:11px;opacity:.82}
-.logo span{color:var(--orange)}
+.logo{display:flex;align-items:center}
+.logo img{display:block;width:230px;max-width:42vw;height:auto;filter:drop-shadow(0 0 18px rgba(255,106,0,.18))}
+.logo-mark{display:none}
+.logo span{color:inherit}
 .navlinks{display:flex;align-items:center;gap:24px;color:#c8c2ba;font-size:14px}
 .navlinks a:hover{color:white}
-.btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:48px;padding:0 20px;border-radius:999px;font-weight:850;border:1px solid rgba(255,157,36,.32);background:linear-gradient(135deg,#ff5e00,#ffab2e);color:#180b00;box-shadow:0 16px 42px rgba(255,106,0,.22);transition:.22s ease}
-.btn:hover{transform:translateY(-2px);box-shadow:0 20px 60px rgba(255,106,0,.35)}
-.btn.ghost{background:rgba(255,255,255,.055);color:white;border-color:var(--line);box-shadow:none}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:50px;padding:0 22px;border-radius:999px;font-weight:900;letter-spacing:.15px;border:1px solid rgba(255,194,112,.62);background:linear-gradient(135deg,#fff0c7 0%,#ffb347 18%,#ff6a00 62%,#ff3d00 100%);color:#1a0900;box-shadow:0 10px 28px rgba(255,106,0,.32),0 0 0 1px rgba(255,255,255,.10) inset,0 0 34px rgba(255,116,24,.20);transition:.24s ease;position:relative;overflow:hidden;text-shadow:0 1px 0 rgba(255,255,255,.18)}
+.btn:before{content:"";position:absolute;inset:-2px;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.65) 48%,transparent 70%);transform:translateX(-140%);transition:.7s ease}
+.btn:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 18px 48px rgba(255,106,0,.45),0 0 0 1px rgba(255,255,255,.14) inset,0 0 48px rgba(255,116,24,.30)}
+.btn:hover:before{transform:translateX(140%)}
+.btn.ghost{background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.045));color:white;border-color:rgba(255,255,255,.18);box-shadow:0 10px 30px rgba(0,0,0,.24),0 0 0 1px rgba(255,255,255,.035) inset}
+.btn.ghost:hover{border-color:rgba(255,157,36,.55);box-shadow:0 15px 42px rgba(255,106,0,.18),0 0 34px rgba(255,106,0,.14)}
 .btn.small{min-height:42px;padding:0 16px;font-size:14px}
 .hero{min-height:760px;display:grid;align-items:center;padding:82px 0 64px}
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:50px;align-items:center}
@@ -132,25 +133,124 @@ footer{padding:34px 0 100px;color:#aaa39b;font-size:13px}
 .sticky span{font-size:13px;color:#c4beb7}
 .reveal{opacity:0;transform:translateY(20px);transition:.7s ease}
 .reveal.on{opacity:1;transform:none}
+
+.skip-queue{position:fixed;right:18px;bottom:86px;z-index:31;min-height:62px;padding:0 26px;border-radius:999px;border:1px solid rgba(255,220,165,.75);background:linear-gradient(135deg,#fff5d6 0%,#ffc35a 17%,#ff7a00 52%,#ff3d00 100%);color:#1b0800;font-weight:950;letter-spacing:.4px;box-shadow:0 18px 55px rgba(255,83,0,.42),0 0 0 1px rgba(255,255,255,.18) inset,0 0 44px rgba(255,106,0,.28);display:flex;align-items:center;gap:11px;transition:.25s ease}
+.skip-queue:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 24px 70px rgba(255,83,0,.56),0 0 55px rgba(255,143,34,.36)}
+.skip-queue .flame{font-size:23px;filter:drop-shadow(0 0 10px rgba(255,189,64,.85));animation:flicker 1.4s ease-in-out infinite}
+@keyframes flicker{0%,100%{transform:rotate(-3deg) scale(1)}50%{transform:rotate(3deg) scale(1.12)}}
+
+
+.top-proof{padding:30px 0 74px}
+.trust-bar{display:grid;grid-template-columns:.72fr 1.28fr;gap:18px;align-items:stretch}
+.google-trust,.founder-mini{border:1px solid rgba(255,157,36,.28);border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));padding:28px;box-shadow:var(--shadow)}
+.google-trust{background:radial-gradient(circle at 75% 0%,rgba(255,106,0,.25),transparent 42%),linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025))}
+.google-trust .stars{margin:0 0 10px}.google-trust h2,.founder-mini h2{font-size:clamp(30px,4vw,48px);letter-spacing:-2px;line-height:1;margin:0 0 12px}
+.google-trust p,.founder-mini p{color:var(--muted);line-height:1.6;margin:0 0 18px}
+.founder-mini{display:grid;grid-template-columns:110px 1fr;gap:22px;align-items:center}
+.founder-avatar{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;font-size:38px;font-weight:950;color:#1b0b00;background:linear-gradient(145deg,#ffbd66,#ff6505);box-shadow:0 0 48px rgba(255,106,0,.28)}
+.testimonial-top{padding:0 0 84px}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testimonial-card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border-radius:26px;padding:24px;min-height:270px;display:flex;flex-direction:column}
+.testimonial-card .stars{font-size:20px;margin:0 0 16px}
+.testimonial-card blockquote{margin:0;color:#ddd6cf;line-height:1.65;font-size:15px;flex:1}
+.testimonial-card .source{padding-top:20px;margin-top:20px;border-top:1px solid var(--line)}
+.testimonial-card .source b{display:block;font-size:17px}.testimonial-card .source span{color:var(--muted);font-size:13px}
+
+.brand-hero{padding:20px 0 4px}
+.brand-panel{position:relative;overflow:hidden;border:1px solid rgba(255,157,36,.24);border-radius:32px;min-height:260px;background:#050505;box-shadow:var(--shadow)}
+.brand-panel img{width:100%;height:100%;min-height:260px;object-fit:cover;display:block;opacity:.94}
+.brand-panel:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.18),transparent 45%,rgba(0,0,0,.12));pointer-events:none}
+.portal-library{padding-top:40px}
+.portal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.portal-preview{position:relative;min-height:410px;border:1px solid rgba(255,255,255,.12);border-radius:28px;overflow:hidden;background:#111;box-shadow:0 24px 70px rgba(0,0,0,.34);isolation:isolate}
+.portal-preview iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#111;transform:scale(1);transform-origin:center;pointer-events:none}
+.portal-preview:before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.06) 20%,rgba(0,0,0,.18) 52%,rgba(0,0,0,.93) 100%)}
+.portal-preview:after{content:"LIVE PORTAL";position:absolute;top:17px;right:17px;z-index:3;padding:7px 10px;border-radius:999px;background:rgba(8,8,10,.82);border:1px solid rgba(255,157,36,.38);color:#ffbd68;font-size:10px;font-weight:900;letter-spacing:1.5px;backdrop-filter:blur(10px)}
+.portal-info{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:26px}
+.portal-info small{color:#ffb34b;text-transform:uppercase;letter-spacing:1.6px;font-weight:850}
+.portal-info h3{font-size:29px;letter-spacing:-1px;margin:8px 0 7px}
+.portal-info p{margin:0 0 17px;color:#d4cec7;line-height:1.5;font-size:14px}
+.portal-link{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 17px;border-radius:999px;background:linear-gradient(135deg,#fff0c7,#ff9c28 28%,#ff5a00 75%);color:#1b0900;font-weight:900;border:1px solid rgba(255,220,165,.65);box-shadow:0 10px 28px rgba(255,83,0,.35)}
+.portal-fallback{position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 70% 15%,rgba(255,106,0,.30),transparent 35%),linear-gradient(145deg,#191117,#070708)}
+.portal-note{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+body.intro-open{overflow:hidden}
+.site-intro{position:fixed;inset:0;z-index:9999;background:#030303;display:grid;place-items:center;overflow:hidden;transition:opacity .9s ease,visibility .9s ease}
+.site-intro.closed{opacity:0;visibility:hidden;pointer-events:none}
+.intro-blur,.intro-main{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.intro-blur{filter:blur(28px) brightness(.36) saturate(1.22);transform:scale(1.12);opacity:.9}
+.intro-main{object-fit:contain;filter:brightness(.68) saturate(1.08)}
+.intro-shade{position:absolute;inset:0;background:
+linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,.10) 42%,rgba(0,0,0,.78)),
+radial-gradient(circle at 50% 40%,transparent 0 28%,rgba(0,0,0,.34) 80%);
+z-index:2}
+.intro-content{position:relative;z-index:3;width:min(900px,calc(100% - 36px));text-align:center;display:grid;justify-items:center}
+.intro-logo{width:min(620px,86vw);height:auto;filter:drop-shadow(0 15px 36px rgba(0,0,0,.82));margin-bottom:22px}
+.intro-eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#ffc16b;font-weight:900;margin-bottom:13px}
+.intro-title{font-size:clamp(42px,7vw,88px);line-height:.93;letter-spacing:-4px;margin:0 0 16px;text-shadow:0 14px 44px rgba(0,0,0,.85)}
+.intro-copy{max-width:650px;color:#ebe5dd;font-size:clamp(15px,2vw,19px);line-height:1.55;margin:0 0 26px;text-shadow:0 3px 18px #000}
+.intro-enter{min-height:58px;padding:0 29px;font-size:15px}
+.intro-skip{margin-top:14px;border:0;background:transparent;color:#d4cec6;text-decoration:underline;text-underline-offset:5px;cursor:pointer}
+.intro-progress{position:absolute;left:0;bottom:0;height:3px;width:100%;background:rgba(255,255,255,.14);z-index:4}
+.intro-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffb142,#ff5a00);animation:introProgress 12s linear infinite}
+@keyframes introProgress{to{width:100%}}
+@media(max-width:650px){
+.intro-main{object-fit:cover}
+.intro-blur{display:none}
+.intro-logo{width:min(520px,92vw)}
+.intro-title{letter-spacing:-2.5px}
+}
+@media(prefers-reduced-motion:reduce){
+.intro-progress span{animation:none;width:100%}
+.site-intro{transition:none}
+}
+
+@media(max-width:980px){.portal-grid{grid-template-columns:1fr}.portal-preview{min-height:390px}}
+@media(max-width:650px){.brand-panel,.brand-panel img{min-height:170px}.portal-preview{min-height:350px}.portal-info h3{font-size:25px}}
+
+@media(max-width:980px){.trust-bar{grid-template-columns:1fr}.testimonial-grid{grid-template-columns:1fr}.founder-mini{grid-template-columns:90px 1fr}.founder-avatar{width:90px;height:90px}}
+@media(max-width:650px){.founder-mini{grid-template-columns:1fr}.founder-avatar{width:78px;height:78px;font-size:28px}}
+
 @media(max-width:980px){
 .navlinks{display:none}.hero-grid,.founder,.reviews{grid-template-columns:1fr}.grid4,.pricing{grid-template-columns:repeat(2,1fr)}.grid3,.showcase{grid-template-columns:1fr 1fr}.hero{min-height:auto}.portrait{min-height:390px}
 }
 @media(max-width:650px){
+.skip-queue{right:12px;bottom:82px;min-height:54px;padding:0 18px;font-size:13px}
 .wrap{width:min(100% - 22px,1180px)}.hero{padding-top:48px}.hero-grid{gap:30px}h1{letter-spacing:-3px}.grid3,.grid4,.showcase,.pricing{grid-template-columns:1fr}.price.featured{transform:none}.sectionhead{display:block}.sectionhead p{margin-top:14px}.founderpoints{grid-template-columns:1fr}.reviews{padding:24px}.sticky>span{display:none}.sticky{justify-content:center}.nav .btn{display:none}.choice{grid-template-columns:1fr}
 }
 </style>
 </head>
-<body>
+<body class="intro-open">
+
+<div class="site-intro" id="siteIntro" aria-label="ClientCapture introduction">
+  <video class="intro-blur" autoplay muted loop playsinline preload="metadata" poster="intro-poster.jpg" aria-hidden="true">
+    <source src="intro.mp4" type="video/mp4">
+  </video>
+  <video class="intro-main" id="introVideo" autoplay muted loop playsinline preload="auto" poster="intro-poster.jpg">
+    <source src="intro.mp4" type="video/mp4">
+  </video>
+  <div class="intro-shade"></div>
+  <div class="intro-content">
+    <div class="intro-eyebrow">Built in Northern Ireland</div>
+    <img class="intro-logo" src="clientcapture-logo-dark.jpg" alt="ClientCapture — Your Digital Front Desk">
+    <h1 class="intro-title">Turn clicks into clients.</h1>
+    <p class="intro-copy">Welcome to ClientCapture. Premium digital front desks built around real businesses, real customer journeys and real action.</p>
+    <button class="btn intro-enter" id="enterSite" type="button">Enter ClientCapture →</button>
+    <button class="intro-skip" id="skipIntro" type="button">Skip introduction</button>
+  </div>
+  <div class="intro-progress"><span></span></div>
+</div>
+
 <div class="noise"></div>
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="ClientCapture home"><span class="logo-mark"></span>Client<span>Capture</span></a>
+    <a class="logo" href="#top" aria-label="ClientCapture home"><img src="clientcapture-logo-dark.jpg" alt="ClientCapture — Your Digital Front Desk"></a>
     <nav class="navlinks">
       <a href="#services">What we build</a>
       <a href="#work">Examples</a>
       <a href="#pricing">Pricing</a>
-      <a href="#reviews">Reviews</a>
+      <a href="#client-reviews">Reviews</a>
       <a href="#founder">Founder</a>
     </nav>
     <a class="btn small" href="https://www.getclientcapture.co.uk/enquiry.html">Start a project</a>
@@ -158,15 +258,24 @@ footer{padding:34px 0 100px;color:#aaa39b;font-size:13px}
 </header>
 
 <main id="top">
+
+<section class="brand-hero">
+  <div class="wrap">
+    <div class="brand-panel reveal">
+      <img src="clientcapture-logo-dark.jpg" alt="ClientCapture — Your Digital Front Desk. Turn clicks into clients.">
+    </div>
+  </div>
+</section>
+
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="reveal">
       <div class="kicker"><span class="dot"></span> Belfast built. Designed for real customer action.</div>
       <h1>Your business deserves a <span class="gradient">digital front desk.</span></h1>
-      <p class="hero-copy">ClientCapture builds premium business portals that organise enquiries, bookings, reviews, menus, offers and customer journeys in one fast, branded experience.</p>
+      <p class="hero-copy">ClientCapture builds branded digital front desks that organise enquiries, bookings, reviews, menus, offers and customer journeys in one clear experience.</p>
       <div class="actions">
         <a class="btn" href="https://www.getclientcapture.co.uk/enquiry.html">Build my portal →</a>
-        <a class="btn ghost" href="#work">See what we build</a>
+        <a class="btn ghost" href="#work">See what we build</a><a class="btn" href="https://www.getclientcapture.co.uk/enquiry.html">Skip the Queue ⚡</a>
       </div>
       <div class="microproof">
         <span>Mobile first</span><span>QR ready</span><span>Direct enquiry routes</span><span>Built for conversion</span>
@@ -193,66 +302,51 @@ footer{padding:34px 0 100px;color:#aaa39b;font-size:13px}
   </div>
 </section>
 
-<section id="services">
+<section class="top-proof">
+  <div class="wrap trust-bar">
+    <article class="google-trust reveal">
+      <div class="stars">★★★★★</div>
+      <h2>Five-star Google trust.</h2>
+      <p>See genuine feedback from ClientCapture clients, then judge the work for yourself.</p>
+      <a class="btn" href="https://g.page/r/CYYPgFEFK-2jEBM/review" target="_blank" rel="noopener">View or leave a Google review →</a>
+    </article>
+    <article class="founder-mini reveal">
+      <div class="founder-avatar">RE</div>
+      <div>
+        <div class="kicker">Founder-led from Belfast</div>
+        <h2>Built by Ross W. Edwards.</h2>
+        <p>Ross built ClientCapture after years working around finance, risk, systems and missed signals. The same discipline now helps businesses turn scattered messages into one clear customer journey.</p>
+        <a class="btn ghost" href="#founder">Read the founder story</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="testimonial-top" id="client-reviews">
   <div class="wrap">
     <div class="sectionhead reveal">
-      <h2>More useful than a normal website.</h2>
-      <p>We design around the next action your customer should take, then make that action clear, quick and premium.</p>
+      <h2>Five-star words from real businesses.</h2>
+      <p>Proof should appear before the sales pitch. These businesses have already experienced the ClientCapture approach.</p>
     </div>
-    <div class="grid4">
-      <article class="card reveal"><div class="icon">⌁</div><h3>Digital Front Desk</h3><p>A central portal for booking, enquiries, directions, services, social links, reviews and updates.</p></article>
-      <article class="card reveal"><div class="icon">↗</div><h3>Lead Capture</h3><p>Short, deliberate customer journeys that move attention towards WhatsApp, email, forms or calls.</p></article>
-      <article class="card reveal"><div class="icon">◎</div><h3>QR Ready</h3><p>Connect your physical business to the right digital action through posters, cards, menus and displays.</p></article>
-      <article class="card reveal"><div class="icon">✦</div><h3>Premium Experience</h3><p>Distinctive motion, atmosphere and interaction without sacrificing speed, clarity or mobile usability.</p></article>
-    </div>
-  </div>
-</section>
-
-<section id="work">
-  <div class="wrap">
-    <div class="sectionhead reveal">
-      <h2>Built around the business.</h2>
-      <p>Every portal has its own visual world, but every build must still help a real person take a real next step.</p>
-    </div>
-    <div class="showcase">
-      <article class="work reveal"><div class="workbody"><small>Hospitality</small><h3>Menu. Offers. Reserve.</h3><p>A polished guest journey for restaurants, cafés, bars and hotels.</p></div></article>
-      <article class="work reveal"><div class="workbody"><small>Coaches & creators</small><h3>Story. Proof. Apply.</h3><p>A high-trust portal that turns attention into applications and conversations.</p></div></article>
-      <article class="work reveal"><div class="workbody"><small>Local services</small><h3>Services. Reviews. Enquire.</h3><p>A practical front desk for barbers, beauty, fitness, trades and professional firms.</p></div></article>
+    <div class="testimonial-grid">
+      <article class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“A five-star Google review from LT Therapy, recognising the quality and professionalism of the ClientCapture experience.”</blockquote>
+        <div class="source"><b>LT Therapy</b><span>Five-star ClientCapture review</span></div>
+      </article>
+      <article class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“ClientCapture completely changed how I handle enquiries. Leads come straight to my phone the second someone fills the form in. I’m booking people I’d have lost before. Honestly buzzing with it.”</blockquote>
+        <div class="source"><b>Ellie Mae’s</b><span>Dog Grooming</span></div>
+      </article>
+      <article class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“As a creator it’s been a game-changer. ClientCapture pulls every comment, DM and enquiry into one place, so I’m actually replying to people instead of losing them in the noise.”</blockquote>
+        <div class="source"><b>Jinterz Garage</b><span>Creator and automotive portal</span></div>
+      </article>
     </div>
   </div>
 </section>
-
-<section id="pricing">
-  <div class="wrap">
-    <div class="sectionhead reveal">
-      <h2>A clear route from demo to full portal.</h2>
-      <p>Every project is scoped properly before launch. Prices below show the current ClientCapture product ladder.</p>
-    </div>
-    <div class="pricing">
-      <article class="price reveal"><h3>Starter</h3><div class="from">From</div><div class="amount">£99</div><ul><li>Focused landing page</li><li>Core contact route</li><li>Mobile-ready layout</li><li>QR-compatible link</li></ul><a class="btn ghost" href="https://www.getclientcapture.co.uk/enquiry.html">Ask about Starter</a></article>
-      <article class="price reveal"><h3>Business Portal</h3><div class="from">Full build from</div><div class="amount">£499</div><ul><li>Complete digital front desk</li><li>Services, offers and reviews</li><li>Booking or enquiry journey</li><li>Launch and mobile checks</li></ul><a class="btn ghost" href="https://www.getclientcapture.co.uk/enquiry.html">Build my portal</a></article>
-      <article class="price featured reveal"><span class="badge">MOST COMPLETE</span><h3>Premium Portal</h3><div class="from">From</div><div class="amount">£999</div><ul><li>Premium visual experience</li><li>Front Desk Pack included</li><li>Google review card</li><li>A3 flyer, counter and window QR</li></ul><a class="btn" href="https://www.getclientcapture.co.uk/enquiry.html">Choose Premium</a></article>
-      <article class="price reveal"><h3>Motion / 3D</h3><div class="from">From</div><div class="amount">£1,499</div><ul><li>Immersive opening sequence</li><li>Custom motion direction</li><li>Interactive branded world</li><li>High-impact campaign portal</li></ul><a class="btn ghost" href="https://www.getclientcapture.co.uk/enquiry.html">Discuss a concept</a></article>
-    </div>
-  </div>
-</section>
-
-<section id="reviews">
-  <div class="wrap reviews reveal">
-    <div>
-      <div class="stars" aria-label="Google reviews">★★★★★</div>
-      <h2>Built on trust. Improved through feedback.</h2>
-      <p>ClientCapture is now on Google. Existing clients and collaborators can share their experience directly, helping future businesses understand how we work.</p>
-      <a class="btn" href="https://g.page/r/CYYPgFEFK-2jEBM/review" target="_blank" rel="noopener">Leave a Google review →</a>
-    </div>
-    <aside class="reviewcard">
-      <strong>Worked with ClientCapture?</strong>
-      <p>Your honest review helps a growing Belfast business and gives other owners confidence before starting a conversation.</p>
-      <a class="btn ghost" href="https://g.page/r/CYYPgFEFK-2jEBM/review" target="_blank" rel="noopener">Review ClientCapture</a>
-    </aside>
-  </div>
-</section>
-
 <section id="founder">
   <div class="wrap founder">
     <div class="portrait reveal"><div class="initials">RE</div></div>
@@ -270,6 +364,144 @@ footer{padding:34px 0 100px;color:#aaa39b;font-size:13px}
     </div>
   </div>
 </section>
+
+
+<section id="services">
+  <div class="wrap">
+    <div class="sectionhead reveal">
+      <h2>More useful than a normal website.</h2>
+      <p>We design around the next action your customer should take, then make that action clear, quick and premium.</p>
+    </div>
+    <div class="grid4">
+      <article class="card reveal"><div class="icon">⌁</div><h3>Digital Front Desk</h3><p>A central portal for booking, enquiries, directions, services, social links, reviews and updates.</p></article>
+      <article class="card reveal"><div class="icon">↗</div><h3>Lead Capture</h3><p>Short, deliberate customer journeys that move attention towards WhatsApp, email, forms or calls.</p></article>
+      <article class="card reveal"><div class="icon">◎</div><h3>QR Ready</h3><p>Connect your physical business to the right digital action through posters, cards, menus and displays.</p></article>
+      <article class="card reveal"><div class="icon">✦</div><h3>Premium Experience</h3><p>Distinctive motion, atmosphere and interaction without sacrificing speed, clarity or mobile usability.</p></article>
+    </div>
+  </div>
+</section>
+
+
+<section id="work" class="portal-library">
+  <div class="wrap">
+    <div class="sectionhead reveal">
+      <h2>Explore the live ClientCapture portal network.</h2>
+      <p>Each business gets its own digital front door, visual identity and customer journey. Tap any preview to open the live build.</p>
+    </div>
+    <div class="portal-grid">
+      
+      <article class="portal-preview reveal">
+        <div class="portal-fallback"></div>
+        <iframe src="https://roody.getclientcapture.co.uk" title="Roody live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <div class="portal-info">
+          <small>Artist Portal</small>
+          <h3>Roody</h3>
+          <p>Music, releases, bookings and artist enquiries.</p>
+          <a class="portal-link" href="https://roody.getclientcapture.co.uk" target="_blank" rel="noopener">Open live portal →</a>
+        </div>
+      </article>
+      <article class="portal-preview reveal">
+        <div class="portal-fallback"></div>
+        <iframe src="https://holisitic.getclientcapture.co.uk" title="LT Therapy live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <div class="portal-info">
+          <small>Beauty Portal</small>
+          <h3>LT Therapy</h3>
+          <p>Treatments, trust, availability and client enquiries.</p>
+          <a class="portal-link" href="https://holisitic.getclientcapture.co.uk" target="_blank" rel="noopener">Open live portal →</a>
+        </div>
+      </article>
+      <article class="portal-preview reveal">
+        <div class="portal-fallback"></div>
+        <iframe src="https://ellie-maes.getclientcapture.co.uk" title="Ellie Mae’s live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <div class="portal-info">
+          <small>Dog Grooming Portal</small>
+          <h3>Ellie Mae’s</h3>
+          <p>Services, booking intent and direct grooming enquiries.</p>
+          <a class="portal-link" href="https://ellie-maes.getclientcapture.co.uk" target="_blank" rel="noopener">Open live portal →</a>
+        </div>
+      </article>
+      <article class="portal-preview reveal">
+        <div class="portal-fallback"></div>
+        <iframe src="https://prime.getclientcapture.co.uk" title="PrimeBio live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <div class="portal-info">
+          <small>Biotech Portal</small>
+          <h3>PrimeBio</h3>
+          <p>An immersive digital front door for a biotech venture.</p>
+          <a class="portal-link" href="https://prime.getclientcapture.co.uk" target="_blank" rel="noopener">Open live portal →</a>
+        </div>
+      </article>
+      <article class="portal-preview reveal">
+        <div class="portal-fallback"></div>
+        <iframe src="https://basils.getclientcapture.co.uk" title="Basils Café live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <div class="portal-info">
+          <small>Restaurant Portal</small>
+          <h3>Basils Café</h3>
+          <p>Menus, offers, location, reviews and customer action.</p>
+          <a class="portal-link" href="https://basils.getclientcapture.co.uk" target="_blank" rel="noopener">Open live portal →</a>
+        </div>
+      </article>
+      <article class="portal-preview reveal">
+        <div class="portal-fallback"></div>
+        <iframe src="https://laspeziaside.getclientapture.co.uk" title="La Spezia Side live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <div class="portal-info">
+          <small>Restaurant Portal</small>
+          <h3>La Spezia Side</h3>
+          <p>A premium hospitality portal for dining and reservations.</p>
+          <a class="portal-link" href="https://laspeziaside.getclientapture.co.uk" target="_blank" rel="noopener">Open live portal →</a>
+        </div>
+      </article>
+      <article class="portal-preview reveal">
+        <div class="portal-fallback"></div>
+        <iframe src="https://aayush.art.getclientcapture.co.uk" title="Aayush Art live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <div class="portal-info">
+          <small>Graphic Design Portal</small>
+          <h3>Aayush Art</h3>
+          <p>Creative showcase, video work and collaboration enquiries.</p>
+          <a class="portal-link" href="https://aayush.art.getclientcapture.co.uk" target="_blank" rel="noopener">Open live portal →</a>
+        </div>
+      </article>
+      <article class="portal-preview reveal">
+        <div class="portal-fallback"></div>
+        <iframe src="https://thenetworking.app" title="TheNetworking.app live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <div class="portal-info">
+          <small>App Development Portal</small>
+          <h3>TheNetworking.app</h3>
+          <p>A focused enquiry portal for product and app development.</p>
+          <a class="portal-link" href="https://thenetworking.app" target="_blank" rel="noopener">Open live portal →</a>
+        </div>
+      </article>
+      <article class="portal-preview reveal">
+        <div class="portal-fallback"></div>
+        <iframe src="https://tna.getclientcapture.co.uk" title="TNA live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <div class="portal-info">
+          <small>Networking App Portal</small>
+          <h3>TNA</h3>
+          <p>A ClientCapture-powered route into networking opportunities.</p>
+          <a class="portal-link" href="https://tna.getclientcapture.co.uk" target="_blank" rel="noopener">Open live portal →</a>
+        </div>
+      </article>
+    </div>
+    <p class="portal-note">Live previews depend on each site allowing embedded display. Every orange button opens the full portal directly.</p>
+  </div>
+</section>
+
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sectionhead reveal">
+      <h2>A clear route from demo to full portal.</h2>
+      <p>Every project is scoped properly before launch. Prices below show the current ClientCapture product ladder.</p>
+    </div>
+    <div class="pricing">
+      <article class="price reveal"><h3>Starter</h3><div class="from">From</div><div class="amount">£99</div><ul><li>Focused landing page</li><li>Core contact route</li><li>Mobile-ready layout</li><li>QR-compatible link</li></ul><a class="btn ghost" href="https://www.getclientcapture.co.uk/enquiry.html">Ask about Starter</a></article>
+      <article class="price reveal"><h3>Business Portal</h3><div class="from">Full build from</div><div class="amount">£499</div><ul><li>Complete digital front desk</li><li>Services, offers and reviews</li><li>Booking or enquiry journey</li><li>Launch and mobile checks</li></ul><a class="btn ghost" href="https://www.getclientcapture.co.uk/enquiry.html">Build my portal</a></article>
+      <article class="price featured reveal"><span class="badge">MOST COMPLETE</span><h3>Premium Portal</h3><div class="from">From</div><div class="amount">£999</div><ul><li>Premium visual experience</li><li>Front Desk Pack included</li><li>Google review card</li><li>A3 flyer, counter and window QR</li></ul><a class="btn" href="https://www.getclientcapture.co.uk/enquiry.html">Choose Premium</a></article>
+      <article class="price reveal"><h3>Motion / 3D</h3><div class="from">From</div><div class="amount">£1,499</div><ul><li>Immersive opening sequence</li><li>Custom motion direction</li><li>Interactive branded world</li><li>High-impact campaign portal</li></ul><a class="btn ghost" href="https://www.getclientcapture.co.uk/enquiry.html">Discuss a concept</a></article>
+    </div>
+  </div>
+</section>
+
+
 
 <section>
   <div class="wrap cta reveal">
@@ -290,9 +522,34 @@ footer{padding:34px 0 100px;color:#aaa39b;font-size:13px}
   </div>
 </footer>
 
+<a class="skip-queue" href="https://www.getclientcapture.co.uk/enquiry.html" aria-label="Skip the queue and open the ClientCapture enquiry form"><span class="flame">🔥</span><span>SKIP THE QUEUE</span></a>
 <div class="sticky"><span><b>Ready to improve your digital front door?</b></span><a class="btn small" href="https://www.getclientcapture.co.uk/enquiry.html">Start a project</a></div>
 
 <script>
+
+const intro=document.getElementById('siteIntro');
+const enter=document.getElementById('enterSite');
+const skip=document.getElementById('skipIntro');
+const introVideo=document.getElementById('introVideo');
+
+function closeIntro(){
+  if(!intro || intro.classList.contains('closed')) return;
+  intro.classList.add('closed');
+  document.body.classList.remove('intro-open');
+  try{introVideo.pause()}catch(e){}
+  sessionStorage.setItem('clientcaptureIntroSeen','1');
+  setTimeout(()=>intro.remove(),1000);
+}
+enter?.addEventListener('click',closeIntro);
+skip?.addEventListener('click',closeIntro);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter' || e.key==='Escape') closeIntro();
+});
+if(sessionStorage.getItem('clientcaptureIntroSeen')==='1'){
+  intro?.remove();
+  document.body.classList.remove('intro-open');
+}
+
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
